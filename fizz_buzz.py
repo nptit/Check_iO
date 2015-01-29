@@ -5,8 +5,7 @@ def checkio(n):
         return "Fizz"
     elif n % 5 == 0:
         return "Buzz"
-    else:
-        return str(n)
+    return str(n)
 
 if __name__ == '__main__':
     assert checkio(15) == "Fizz Buzz", "15 is divisible by 3 and 5"
