@@ -1,0 +1,14 @@
+def checkio(n):
+    if n % 15 == 0:
+        return "Fizz Buzz"
+    elif n % 3 == 0:
+        return "Fizz"
+    elif n % 5 == 0:
+        return "Buzz"
+    return str(n)
+
+if __name__ == '__main__':
+    assert checkio(15) == "Fizz Buzz", "15 is divisible by 3 and 5"
+    assert checkio(6) == "Fizz", "6 is divisible by 3"
+    assert checkio(5) == "Buzz", "5 is divisible by 5"
+    assert checkio(7) == "7", "7 is not divisible by 3 or 5"
