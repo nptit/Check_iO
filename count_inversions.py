@@ -1,6 +1,6 @@
 def count_inversion(sequence):
     """ Count inversions in a sequence of numbers """
-    return sum(sum(1 for b in sequence[i:] if a > b)
+    return sum(sum(1 for b in sequence[i+1:] if a > b)
                for i, a in enumerate(sequence))
 
 if __name__ == '__main__':
