@@ -1,8 +1,6 @@
 def index_power(array, n):
     """ Find nth power of the element with index n """
-    if n > len(array) - 1:
-        return -1
-    return array[n] ** n
+    return -1 if n > len(array) - 1 else array[n] ** n 
 
 if __name__ == '__main__':
     assert index_power([1, 2, 3, 4], 2) == 9, "Square"
