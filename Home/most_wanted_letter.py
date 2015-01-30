@@ -18,3 +18,12 @@ if __name__ == '__main__':
     print("Start the long test")
     assert checkio("a" * 9000 + "b" * 1000) == "a", "Long."
     print("The local tests are done.")
+
+# # my old way... ?? better/worse?
+# from itertools import groupby
+# 
+# def checkio(s):
+#     str = ''.join(sorted([x.lower() for x in s if x.isalpha()]))
+#     b = [list(y) for x, y in groupby(str)]
+#     l = [len(x) for x in b]
+#     return next(b[i][0] for i, x in enumerate(l) if x == max(l))
