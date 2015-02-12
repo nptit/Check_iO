@@ -18,61 +18,55 @@ def create_table(alphabet, to_encode=True):
     return table_dict
 
 
-def encode(message, secret_alphabet, keyword):
-    msg = ''.join(a.lower() for a in message if a.isalnum())
-    adfgvx_table = create_table(secret_alphabet)
-    fractionated = ''.join(adfgvx_table[char] for char in msg)  # wrong name?
-    keyword = clean_keyword(keyword)
-    dex = 0
-    table_dict = {g: list() for g in keyword}
-    while dex < len(fractionated):
-        for h in keyword:
-            try:
-                table_dict[h].append(fractionated[dex])
-                dex += 1
-            except IndexError:
-                break
-    return ''.join(''.join(v) for k, v in sorted(table_dict.items()))
-
-
 def decode(message, secret_alphabet, keyword):
     cipher_dict = create_table(secret_alphabet, to_encode=False)
     keyword = clean_keyword(keyword)
     msg_len = len(message)
-    key_len = len(keyword)
-    if msg_len % key_len == 0:
-        full = msg_len // key_len
-        d = {a: full for a in keyword}
-
+    keyword_len = len(keyword)
+    if msg_len % keyword_len == 0:     # if keyword_len divides evenly into msg_len
+        full = msg_len // keyword_len  # all columns are same length
+        keyword_char_values = {a: full for a in keyword}
     else:
-        for a in range(1, msg_len):
-            if a * key_len > msg_len:
-                full = a                         # maximum for full columns
-                diff = full * key_len - msg_len  # num of columns missing
+        for f in range(1, msg_len):
+            if f * keyword_len > msg_len:
+                full = f                             # maximum for full columns
+                diff = full * keyword_len - msg_len  # num of columns missing 1
                 break
-        d = dict()
-        for i, char in enumerate(keyword):
-            if i < key_len - diff:
-                d[char] = full
+        keyword_char_values = dict()
+        for g, char in enumerate(keyword):
+            if g < keyword_len - diff:
+                keyword_char_values[char] = full
             else:
-                d[char] = full - 1
+                keyword_char_values[char] = full - 1
     dex = 0
     column = dict()
-    for letter, value in sorted(d.items()):
+    for letter, value in sorted(keyword_char_values.items()):
         if value == full:
             column[letter] = list(message[dex:dex+full])
             dex += full
         else:
             column[letter] = list(message[dex:dex+(full-1)] + ' ')
             dex += full - 1
-
-    msg = ''.join(''.join(g) for g in zip(*[column[char]
+    msg = ''.join(''.join(h) for h in zip(*[column[char]
                                             for char in keyword])).strip()
-    return ''.join(cipher_dict[msg[h:h+2]] for h in range(0, len(msg), 2))
+    return ''.join(cipher_dict[msg[i:i+2]] for i in range(0, len(msg), 2))
 
 
-# print(encode('I am going.', 'dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g', 'cipher')) == 'FXGAFVXXAXDDDXGA'
-# print(decode('FXGAFVXXAXDDDXGA', 'dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g', 'cipher')) == 'iamgoing'
+def encode(message, secret_alphabet, keyword):
+    msg = ''.join(j.lower() for j in message if j.isalnum())
+    cipher_dict = create_table(secret_alphabet)
+    fractionated = ''.join(cipher_dict[char] for char in msg)
+    keyword = clean_keyword(keyword)
+    dex = 0
+    table_dict = {k: list() for k in keyword}
+    while dex < len(fractionated):
+        for l in keyword:
+            try:
+                table_dict[l].append(fractionated[dex])
+                dex += 1
+            except IndexError:
+                break
+    return ''.join(''.join(m) for _, m in sorted(table_dict.items()))
 
 if __name__ == '__main__':
     assert encode("I am going",
