@@ -1,10 +1,3 @@
-# cow = r'''
-#         \   ^__^
-#          \  (oo)\_______
-#             (__)\       )\/\
-#                 ||----w |
-#                 ||     ||
-# '''
 cow = r'''
         \   ^__^
          \  (oo)\_______
@@ -26,7 +19,6 @@ def cowsay(text):
         end = 39
         longest = 0
         # spaces = [index for index, char in enumerate(text) if char.isspace()]
-        # print(spaces, '\n')
         while True:
             if end >= length:
                 lines.append(text[start:end])
@@ -61,81 +53,9 @@ def cowsay(text):
         adjusted_lines.append(' {}'.format('-' * (longest + 2)))
         return '\n{}{}'.format('\n'.join(adjusted_lines), cow)
 
-
-# # print(cowsay('Checkio rulezz'))
+# print(cowsay('Checkio rulezz'))
 # print(cowsay('A longtextwithonlyonespacetofittwolines.'))
 # print(cowsay('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'))
-
-
-
-# # test = r'''
-# # ________________________________________
-# # / A                                      \
-# # \ longtextwithonlyonespacetofittwolines. /
-# # ----------------------------------------
-# #         \   ^__^
-# #          \  (oo)\_______
-# #             (__)\       )\/\
-# #                 ||----w |
-# #                 ||     ||
-# # '''
-#
-# test2 = r'''
-# ________________________________________
-# / A                                      \
-# \ longtextwithonlyonespacetofittwolines. /
-# ----------------------------------------
-#         \   ^__^
-#          \  (oo)\_______
-#             (__)\       )\/\
-#                 ||----w |
-#                 ||     ||
-# '''
-# # print(cowsay('A longtextwithonlyonespacetofittwolines.') == test2)
-# # print(test2)
-#
-#
-
-
-
-
-
-#
-# cowsay('Checkio rulezz') == r'''
-# ________________
-# < Checkio rulezz >
-# ----------------
-#         \   ^__^
-#          \  (oo)\_______
-#             (__)\       )\/\
-#                 ||----w |
-#                 ||     ||
-# '''
-# cowsay('A longtextwithonlyonespacetofittwolines.') == r'''
-# ________________________________________
-# / A                                      \
-# \ longtextwithonlyonespacetofittwolines. /
-# ----------------------------------------
-#         \   ^__^
-#          \  (oo)\_______
-#             (__)\       )\/\
-#                 ||----w |
-#                 ||     ||
-# '''
-# cowsay('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.') == r'''
-# _________________________________________
-# / Lorem ipsum dolor sit amet, consectetur \
-# | adipisicing elit, sed do eiusmod tempor |
-# | incididunt ut labore et dolore magna    |
-# \ aliqua.                                 /
-# -----------------------------------------
-#         \   ^__^
-#          \  (oo)\_______
-#             (__)\       )\/\
-#                 ||----w |
-#                 ||     ||
-# '''
-
 
 if __name__ == '__main__':
     expected_cowsay_one_line = r'''
@@ -175,7 +95,7 @@ if __name__ == '__main__':
 '''
 
     cowsay_one_line = cowsay('Checkio rulezz')
-    # assert cowsay_one_line == expected_cowsay_one_line, 'Wrong answer:\n%s' % cowsay_one_line
+    assert cowsay_one_line == expected_cowsay_one_line, 'Wrong answer:\n%s' % cowsay_one_line
 
     cowsay_two_lines = cowsay('A longtextwithonlyonespacetofittwolines.')
     assert cowsay_two_lines == expected_cowsay_two_lines, 'Wrong answer:\n%s' % cowsay_two_lines
