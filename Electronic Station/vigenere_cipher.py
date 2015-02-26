@@ -22,7 +22,7 @@ def clean_up_key(txt):
         chunk_cnt = 0
         for b in range(0, length, a):
             end = a + b
-            if a + b > length and chunk == txt[b:length]:
+            if end > length and chunk == txt[b:length]:
                 end = length
             if chunk == txt[b:end] or chunk.startswith(txt[b:end]):
                 chunk_cnt += 1
