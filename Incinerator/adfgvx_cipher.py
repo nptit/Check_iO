@@ -23,7 +23,7 @@ def decode(message, secret_alphabet, keyword):
     keyword = clean_keyword(keyword)
     msg_len = len(message)
     keyword_len = len(keyword)
-    if msg_len % keyword_len == 0:     # if keyword_len divides evenly into msg_len
+    if msg_len % keyword_len == 0:  # keyword_len divides evenly into msg_len
         full = msg_len // keyword_len  # all columns are same length
         keyword_char_values = {a: full for a in keyword}
     else:
@@ -69,27 +69,21 @@ def encode(message, secret_alphabet, keyword):
     return ''.join(''.join(m) for _, m in sorted(table_dict.items()))
 
 if __name__ == '__main__':
-    assert encode("I am going",
-                  "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
-                  "cipher") == 'FXGAFVXXAXDDDXGA', "encode I am going"
-    assert decode("FXGAFVXXAXDDDXGA",
-                  "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
-                  "cipher") == 'iamgoing', "decode I am going"
-    assert encode("attack at 12:00 am",
-                  "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
-                  "privacy") == 'DGDDDAGDDGAFADDFDADVDVFAADVX', "encode attack"
+    assert encode("I am going", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
+                  "cipher") == 'FXGAFVXXAXDDDXGA'
+    assert decode("FXGAFVXXAXDDDXGA", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
+                  "cipher") == 'iamgoing'
+    assert encode("attack at 12:00 am", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
+                  "privacy") == 'DGDDDAGDDGAFADDFDADVDVFAADVX'
     assert decode("DGDDDAGDDGAFADDFDADVDVFAADVX",
-                  "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
-                  "privacy") == 'attackat1200am', "decode attack"
-    assert encode("ditiszeergeheim",
-                  "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
-                  "piloten") == 'DFGGXXAAXGAFXGAFXXXGFFXFADDXGA', "encode ditiszeergeheim"
+                  "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "privacy") \
+        == 'attackat1200am'
+    assert encode("ditiszeergeheim", "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
+                  "piloten") == 'DFGGXXAAXGAFXGAFXXXGFFXFADDXGA'
     assert decode("DFGGXXAAXGAFXGAFXXXGFFXFADDXGA",
-                  "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz",
-                  "piloten") == 'ditiszeergeheim', "decode ditiszeergeheim"
-    assert encode("I am going",
-                  "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
-                  "weasel") == 'DXGAXAAXXVDDFGFX', "encode weasel == weasl"
-    assert decode("DXGAXAAXXVDDFGFX",
-                  "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
-                  "weasel") == 'iamgoing', "decode weasel == weasl"
+                  "na1c3h8tb2ome5wrpd4f6g7i9j0kjqsuvxyz", "piloten") \
+        == 'ditiszeergeheim'
+    assert encode("I am going", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
+                  "weasel") == 'DXGAXAAXXVDDFGFX'
+    assert decode("DXGAXAAXXVDDFGFX", "dhxmu4p3j6aoibzv9w1n70qkfslyc8tr5e2g",
+                  "weasel") == 'iamgoing'
