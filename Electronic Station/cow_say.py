@@ -53,10 +53,6 @@ def cowsay(text):
         adjusted_lines.append(' {}'.format('-' * (longest + 2)))
         return '\n{}{}'.format('\n'.join(adjusted_lines), cow)
 
-# print(cowsay('Checkio rulezz'))
-# print(cowsay('A longtextwithonlyonespacetofittwolines.'))
-# print(cowsay('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'))
-
 if __name__ == '__main__':
     expected_cowsay_one_line = r'''
  ________________
@@ -95,11 +91,12 @@ if __name__ == '__main__':
 '''
 
     cowsay_one_line = cowsay('Checkio rulezz')
-    assert cowsay_one_line == expected_cowsay_one_line, 'Wrong answer:\n%s' % cowsay_one_line
+    assert cowsay_one_line == expected_cowsay_one_line
 
     cowsay_two_lines = cowsay('A longtextwithonlyonespacetofittwolines.')
-    assert cowsay_two_lines == expected_cowsay_two_lines, 'Wrong answer:\n%s' % cowsay_two_lines
+    assert cowsay_two_lines == expected_cowsay_two_lines
 
-    cowsay_many_lines = cowsay('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do '
-                                'eiusmod tempor incididunt ut labore et dolore magna aliqua.')
-    assert cowsay_many_lines == expected_cowsay_many_lines, 'Wrong answer:\n%s' % cowsay_many_lines
+    cowsay_many_lines = cowsay(
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do '
+        'eiusmod tempor incididunt ut labore et dolore magna aliqua.')
+    assert cowsay_many_lines == expected_cowsay_many_lines
