@@ -44,8 +44,10 @@ if __name__ == '__main__':
     assert find_word('Friend Fred and friend Ted.') == "friend"
     assert find_word("Speak friend and enter.") == "friend"
     assert find_word("Beard and Bread") == "bread"
-    assert find_word("The Doors of Durin, Lord of Moria. Speak friend and enter. "
-                     "I Narvi made them. Celebrimbor of Hollin drew these signs") == "durin"
+    assert find_word(
+        "The Doors of Durin, Lord of Moria. Speak friend and enter. "
+        "I Narvi made them. Celebrimbor of Hollin drew these signs") == "durin"
     assert find_word("Aoccdrnig to a rscheearch at Cmabrigde Uinervtisy."
-                     " According to a researcher at Cambridge University.") == "according"
+                     " According to a researcher at Cambridge University.") \
+        == "according"
     assert find_word("One, two, two, three, three, three.") == "three"
