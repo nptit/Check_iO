@@ -7,6 +7,6 @@ def verify_anagrams(x, y):
 
 if __name__ == '__main__':
     assert isinstance(verify_anagrams("a", 'z'), bool), "Boolean!"
-    assert verify_anagrams("Programming", "Gram Ring Mop") == True, "Gram of code"
-    assert verify_anagrams("Hello", "Ole Oh") == False, "Hello! Ole Oh!"
-    assert verify_anagrams("Kyoto", "Tokyo") == True, "The global warming crisis of 3002"
+    assert verify_anagrams("Programming", "Gram Ring Mop") is True
+    assert verify_anagrams("Hello", "Ole Oh") is False
+    assert verify_anagrams("Kyoto", "Tokyo") is True
