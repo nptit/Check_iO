@@ -5,9 +5,13 @@ def flat_list(a):
     except IndexError:pass
   return a
 
-assert flat_list([1, 2, 3]) == [1, 2, 3]
-assert flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4]
-assert flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7]
-assert flat_list([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1]
-assert flat_list([[[[[[[[[]]]]]]]]]) == []
-assert flat_list([[[2]],[4,[5,6,[6],6,6,6],7]]) == [2, 4, 5, 6, 6, 6, 6, 6, 7]
+if __name__ == '__main__':
+    # ^^^ function had to be less than 140 characters long
+    assert flat_list([1, 2, 3]) == [1, 2, 3]
+    assert flat_list([1, [2, 2, 2], 4]) == [1, 2, 2, 2, 4]
+    assert flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) \
+        == [2, 4, 5, 6, 6, 6, 6, 6, 7]
+    assert flat_list([-1, [1, [-2], 1], -1]) == [-1, 1, -2, 1, -1]
+    assert flat_list([[[[[[[[[]]]]]]]]]) == []
+    assert flat_list([[[2]], [4, [5, 6, [6], 6, 6, 6], 7]]) \
+        == [2, 4, 5, 6, 6, 6, 6, 6, 7]
