@@ -18,15 +18,15 @@ if __name__ == '__main__':
         {"key": {"deeper": {"more": {"enough": "value"}}}}
     ) == {"key/deeper/more/enough": "value"}, "Nested"
     assert flatten({"empty": {}}) == {"empty": ""}, "Empty value"
-    assert flatten({"name": {
-                        "first": "One",
-                        "last": "Drone"},
-                    "job": "scout",
-                    "recent": {},
-                    "additional": {
-                        "place": {
-                            "zone": "1",
-                            "cell": "2"}}}
+    assert flatten(
+        {"name": {"first": "One", "last": "Drone"},
+         "job": "scout",
+         "recent": {},
+         "additional": {
+             "place": {
+                 "zone": "1",
+                 "cell": "2"}
+         }}
     ) == {"name/first": "One",
           "name/last": "Drone",
           "job": "scout",
