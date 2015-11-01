@@ -16,7 +16,7 @@ def checkio(time_str):
                        time_to_morse(s, (3, 4))))
 
 if __name__ == '__main__':
-    assert checkio("10:37:49") == ".- .... : .-- .--- : -.. -..-", "First Test"
-    assert checkio("21:34:56") == "-. ...- : .-- .-.. : -.- .--.", "Second Test"
-    assert checkio("00:1:02") == ".. .... : ... ...- : ... ..-.", "Third Test"
-    assert checkio("23:59:59") == "-. ..-- : -.- -..- : -.- -..-", "Fourth Test"
+    assert checkio("10:37:49") == ".- .... : .-- .--- : -.. -..-"
+    assert checkio("21:34:56") == "-. ...- : .-- .-.. : -.- .--."
+    assert checkio("00:1:02") == ".. .... : ... ...- : ... ..-."
+    assert checkio("23:59:59") == "-. ..-- : -.- -..- : -.- -..-"
