@@ -74,13 +74,13 @@ def decode(cipher, key):
     return ''.join(plain)
 
 if __name__ == '__main__':
-    assert encode("Fizz Buzz is x89 XX.", "checkio101") == 'do2y7mt22kry94y2y2', "Encode fizz buzz"
-    assert decode("do2y7mt22kry94y2y2", "checkio101") == 'fizxzbuzzisx89xzxz', "Decode fizz buzz"
-    assert encode("How are you?", "hello") == 'ea2imb1ht0', "Encode How are you"
-    assert decode("ea2imb1ht0", "hello") == 'howareyouz', "Decode How are you"
-    assert encode("My name is Alex!!!", "alexander") == 'i1dlkxjqlexn', "Encode Alex"
-    assert decode("i1dlkxjqlexn", "alexander") == 'mynameisalex', "Decode Alex"
-    assert encode("Who are you?", "human") == 'rnvftc1jd5', "Encode WHo"
-    assert decode("rnvftc1jd5", "human") == 'whoareyouz', "Decode Who"
-    assert encode("ATTACK AT DAWN", "general") == 'ewwektewhnua', "Encode attack"
-    assert decode("ewwektewhnua", "general") == 'attackatdawn', "Decode attack"
+    assert encode("Fizz Buzz is x89 XX.", "checkio101") == 'do2y7mt22kry94y2y2'
+    assert decode("do2y7mt22kry94y2y2", "checkio101") == 'fizxzbuzzisx89xzxz'
+    assert encode("How are you?", "hello") == 'ea2imb1ht0'
+    assert decode("ea2imb1ht0", "hello") == 'howareyouz'
+    assert encode("My name is Alex!!!", "alexander") == 'i1dlkxjqlexn'
+    assert decode("i1dlkxjqlexn", "alexander") == 'mynameisalex'
+    assert encode("Who are you?", "human") == 'rnvftc1jd5'
+    assert decode("rnvftc1jd5", "human") == 'whoareyouz'
+    assert encode("ATTACK AT DAWN", "general") == 'ewwektewhnua'
+    assert decode("ewwektewhnua", "general") == 'attackatdawn'
