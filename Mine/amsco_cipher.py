@@ -39,6 +39,8 @@ def decode_amsco(message, key):
         *(matrix[a] for a in key_str), fillvalue=''))
 
 if __name__ == '__main__':
-    assert decode_amsco("oruoreemdstmioitlpslam", 4123) == "loremipsumdolorsitamet", "Lorem Ipsum"
+    assert decode_amsco("oruoreemdstmioitlpslam", 4123) \
+        == "loremipsumdolorsitamet", "Lorem Ipsum"
     assert decode_amsco('kicheco', 23415) == "checkio", "Checkio"
-    assert decode_amsco('hrewhoorrowyilmmmoaouletow', 123) == "howareyouwillhometommorrow", "How are you"
+    assert decode_amsco('hrewhoorrowyilmmmoaouletow', 123) \
+        == "howareyouwillhometommorrow", "How are you"
