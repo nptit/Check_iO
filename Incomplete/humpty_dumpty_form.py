@@ -1,4 +1,5 @@
-from math import pi, sqrt, asin, degrees, atanh
+from math import pi, sqrt, asin, atanh
+
 
 def checkio(height, width):
     height = float(height)
