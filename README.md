@@ -1,4 +1,4 @@
 # Check_iO
-My solutions for Check_iO problems.
+My solutions for Check_iO problems are written using Python 3.
 
-http://www.checkio.org/user/zebulan/
+[zebulan - CheckiO Profile](http://www.checkio.org/user/zebulan/)
